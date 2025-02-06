@@ -1,0 +1,127 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    animation: main-body 5s ease-in-out;
+    animation-delay: 13s;
+    
+}
+
+@keyframes main-body{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.loading {
+    height: 12rem; /* 200px */
+    width: 12rem;
+    display: flex;
+    position: relative;
+    bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 0px whitesmoke;
+    animation: bounce 1.5s 3 ease-in-out, land-on-shadow 0.5s ease-in-out forwards 4.5s, shift-left 1s ease-in-out forwards 5s, bounces 1.5s infinite ease-in-out 6s;
+    will-change: transform;
+}
+
+.shadows {
+    position: relative;
+    bottom: -7.5rem; /* Adjusted shadow placement */
+    width: 12rem;
+    height: 1.25rem;
+    
+    background-color: white;
+    border-radius: 50%;
+    animation: shadow-bounce 1.5s 3 ease-in-out, shadow-land 0.5s ease-in-out forwards 4.5s, shadow-move 1s ease-in-out forwards 5s, shadow-bounce-end 1.5s infinite ease-in-out 6s;
+    will-change: transform, opacity;
+    will-change: transform, opacity;
+    transform: translateX(-50%);
+}
+
+@keyframes bounce {
+    100% { transform: translateY(9rem) scaleX(1.2) scaleY(0.99); }
+    50% { transform: translateY(-15rem); }
+    0% { transform: translateY(9rem) scaleX(1.2) scaleY(0.99); }
+}
+@keyframes land-on-shadow {
+    0% { transform: translateY(8.5rem) scaleX(1.2) scaleY(0.99); }
+    100% { transform: translateY(9rem) scaleX(1) scaleY(1); }
+}
+
+@keyframes shift-left {
+    0% { transform: translateX(0) translateY(9rem); }
+    100% { transform: translateX(-250px) translateY(9rem); } /* Moves left smoothly */
+}
+
+@keyframes bounces {
+    100% { transform: translateX(-250px) translateY(9rem) scaleX(1.2) scaleY(0.99); }
+    50% { transform: translateX(-250px) translateY(-15rem); }
+    0% { transform: translateX(-250px) translateY(9rem) scaleX(1.2) scaleY(0.99); }
+}
+
+@keyframes shadow-bounce {
+    0% { transform: scaleX(1); opacity: 0.6; }
+    50% { transform: scaleX(0.5); opacity: 0.2; }
+    100% { transform: scaleX(1); opacity: 0.6; }
+}
+
+/* Shadow lands with ball */
+@keyframes shadow-land {
+    0% { transform: translateY(0rem); opacity: 0.6; }
+    100% { transform: translateY(0rem); opacity: 0.6; }
+}
+
+/* Shadow moves with ball */
+@keyframes shadow-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-250px); }
+}
+@keyframes shadow-bounce-end {
+    0% { transform: translateX(-250px) scaleX(1); opacity: 0.6; }
+    50% { transform: translateX(-250px)scaleX(0.5); opacity: 0.2; }
+    100% { transform: translateX(-250px) scaleX(1); opacity: 0.6; }
+}
+
+.opening p {
+    color: white;
+    font-weight: 500;
+    font-size: 4rem; /* 60px */
+    top: -18px;
+    left: 150px;
+    opacity: 0;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: open 3s ease-in-out forwards;
+    animation-delay: 6s; /* Wait for 6 seconds before opening text animation starts */
+    
+    will-change: opacity;
+}
+
+@keyframes open {
+    0% {
+        text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        opacity: 0;
+    }
+    50% {
+        text-shadow: 0 0 5px whitesmoke, 0 0 10px white;
+        opacity:0.5;
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(235, 232, 232, 0.6);
+        opacity: 1;
+    }
+}
